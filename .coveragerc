@@ -1,0 +1,4 @@
+[paths]
+source =
+    src/capsule-net
+    **/site-packages/capsule-net
