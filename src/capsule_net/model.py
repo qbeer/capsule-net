@@ -1,14 +1,10 @@
-from numpy.core.fromnumeric import repeat, transpose
 import torch as T
 import torch.nn.functional as F
-from torch.nn import Conv2d, Linear
-
-import numpy as np
-from torch.nn.modules import transformer
+from torch.nn import Conv2d
 
 
 class CapsuleNetwork(T.nn.Module):
-    def __init__(self, batch_size, capsule_dims=[8, 16], n_caps=[1152, 10]) -> None:
+    def __init__(self, batch_size, capsule_dims=[8, 16], n_caps=[1152, 10]):
         super(CapsuleNetwork, self).__init__()
         self.capsule_dims = capsule_dims
         self.n_caps = n_caps
@@ -26,7 +22,7 @@ class CapsuleNetwork(T.nn.Module):
             mean=0,
             std=stddev,
             size=(1, n_caps[0], n_caps[1], capsule_dims[1], capsule_dims[0])),
-                                                     requires_grad=True)
+            requires_grad=True)
 
         self.raw_weights = T.nn.Parameter(
             T.zeros(size=(batch_size, self.n_caps[0], self.n_caps[1], 1, 1)))
@@ -85,7 +81,6 @@ class CapsuleNetwork(T.nn.Module):
         caps2_round3 = self._squash(weighted_sum, axis=-2)
 
         caps2 = caps2_round3.squeeze()
-        
 
         caps2_normed = self._norm(caps2)
         preds = T.argmax(caps2_normed, axis=-1).squeeze()

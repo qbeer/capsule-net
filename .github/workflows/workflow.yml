@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        $CONDA/bin/conda env update --file pytorch.yml --name base
+        $CONDA/bin/conda env update --file environment.yml --name base
     - name: Lint with flake8
       run: |
         $CONDA/bin/conda install flake8
@@ -28,4 +28,15 @@ jobs:
     - name: Test with unittest and coverage
       run: |
         $CONDA/bin/coverage run -m unittest -v
-        $CONDA/bin/coverage report -m
+        $CONDA/bin/coverage xml
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{  }}
+        file: ./coverage.xml
+        flags: unittests
+        env_vars: OS,PYTHON
+        name: codecov-umbrella
+        fail_ci_if_error: true
+        path_to_write_report: ./coverage/codecov_report.gz
+    
