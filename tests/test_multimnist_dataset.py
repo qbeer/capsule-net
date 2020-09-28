@@ -2,7 +2,6 @@ import unittest
 from src.capsule_net.multimnist_dataset import MultiMnist
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
 
 
 class MultiMnistDatasetTests(unittest.TestCase):
