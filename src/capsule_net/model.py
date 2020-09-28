@@ -85,4 +85,4 @@ class CapsuleNetwork(T.nn.Module):
         caps2_normed = self._norm(caps2)
         preds = T.argmax(caps2_normed, axis=-1).squeeze()
 
-        return preds, caps2
+        return preds, caps2, caps2_normed

@@ -28,11 +28,13 @@ class CapsuleNetTester(unittest.TestCase):
 
     def test_ouput_prediction_shape_for_test_input(self):
         inputs = self.get_random_inputs()
-        preds, capsules = self.capsule_net(inputs)
+        preds, capsules, capsules_normed = self.capsule_net(inputs)
         self.assertEqual(preds.shape, inputs[1].shape)
         self.assertEqual(capsules.shape, (self.batch_size,
                                           self.n_caps[-1],
                                           self.capsule_dims[-1]))
+        self.assertEqual(capsules_normed.shape, (self.batch_size,
+                                                 self.n_caps[-1]))
 
     def test_capsule_transformation_matrices(self):
         weight_matrices = self.capsule_net.transformation_weights.detach()\
