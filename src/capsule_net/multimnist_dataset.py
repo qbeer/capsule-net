@@ -39,10 +39,10 @@ class MultiMnist(torch.utils.data.Dataset):
             image1 = self.image_transforms(image1)
             image2 = self.image_transforms(image2)
 
-        mask = np.zeros_like(image1)
-        mask[np.array(image1) > 100] = np.array(image1)[np.array(image1) > 100]
-        mask[np.array(image2) > 100] = np.array(image2)[np.array(image2) > 100]
-        image = Image.fromarray(mask)
+        x = np.array(image1)
+        y = np.array(image2)
+        blend = np.where(x > y, x, y)
+        image = Image.fromarray(blend)
 
         if self.transforms:
             image = self.transforms(image)
