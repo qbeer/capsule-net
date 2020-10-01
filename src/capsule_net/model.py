@@ -8,7 +8,7 @@ class CapsuleNetwork(T.nn.Module):
         super(CapsuleNetwork, self).__init__()
         self.capsule_dims = capsule_dims
         self.n_caps = n_caps
-        self.conv1 = Conv2d(in_channels=3,
+        self.conv1 = Conv2d(in_channels=1,
                             out_channels=256,
                             kernel_size=9,
                             stride=1)

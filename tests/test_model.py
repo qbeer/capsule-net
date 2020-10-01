@@ -7,7 +7,7 @@ from src.capsule_net.model import CapsuleNetwork
 
 class CapsuleNetTester(unittest.TestCase):
     def get_random_inputs(self):
-        x = np.random.randn(self.batch_size, 3, 28, 28)
+        x = np.random.randn(self.batch_size, 1, 28, 28)
         x = torch.from_numpy(x.astype(np.float32)).to(self.device)
         y = np.random.randint(
             low=0, high=self.n_caps[-1], size=(self.batch_size,))
@@ -53,6 +53,6 @@ class CapsuleNetTester(unittest.TestCase):
     def test_squash(self):
         x, _ = self.get_random_inputs()
         x_squashed = self.capsule_net._squash(x, axis=1)
-        self.assertEqual(x_squashed.shape, (self.batch_size, 3, 28, 28))
+        self.assertEqual(x_squashed.shape, (self.batch_size, 1, 28, 28))
         norm_x = torch.norm(x, p=2, dim=1, keepdim=True).detach().cpu().numpy()
         self.assertTrue((norm_x >= x_squashed.detach().cpu().numpy()).all())
