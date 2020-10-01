@@ -16,7 +16,8 @@ MARGIN_POS = config['predict']['margin_pos']
 
 
 dataset = MultiMnist(transforms=torchvision.transforms.ToTensor(),
-                     target_transform=torchvision.transforms.ToTensor())
+                     target_transform=torchvision.transforms.ToTensor(),
+                     deterministic=False)
 
 dataloader = torch.utils.data.DataLoader(dataset,
                                          batch_size=BATCH_SIZE)

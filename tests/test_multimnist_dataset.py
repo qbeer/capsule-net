@@ -48,8 +48,8 @@ class MultiMnistDatasetTests(unittest.TestCase):
         for data, ax in zip(self.dataset, axes.flatten()):
             image, label = data
             ax.imshow(image)
-            ax.set_title(np.where(label)[0].tolist())
+            ax.set_title(np.where(label[0])[0].tolist())
             ax.set_xticks([])
             ax.set_yticks([])
         fig.tight_layout()
-        plt.savefig('multimnist_example.png')
+        plt.savefig('multimnist_example.png', dpi=50)

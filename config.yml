@@ -10,5 +10,5 @@ train:
 
 predict:
   device: "cpu"
-  grid_size: 4
+  grid_size: 3
   margin_pos: .9
