@@ -42,7 +42,7 @@ labels = labels.detach().cpu().numpy()
 
 
 fig, axes = plt.subplots(GRID_SIZE, GRID_SIZE, sharex=True, sharey=True,
-                         figsize=(16, 16))
+                         figsize=(10, 10))
 
 for image, label, capsule, ax in zip(images, labels, capsules_normed,
                                      axes.flatten()):
