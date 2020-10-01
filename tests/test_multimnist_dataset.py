@@ -34,6 +34,14 @@ class MultiMnistDatasetTests(unittest.TestCase):
         self.assertTrue(isinstance(image, torch.Tensor))
         self.assertTrue(isinstance(label, torch.Tensor))
 
+    def test_one_hot_output_label(self):
+        _, label = self.dataset[0]
+        self.assertEqual(set(np.unique(label).tolist()), set([0, 1]))
+        target_transform = torchvision.transforms.ToTensor()
+        dataset = MultiMnist(target_transform=target_transform)
+        _, label = dataset[0]
+        self.assertEqual(set(np.unique(label.numpy()).tolist()), set([0, 1]))
+
     def test_image_visualization(self):
         fig, axes = plt.subplots(
             3, 3, sharex=True, sharey=True, figsize=(10, 10))

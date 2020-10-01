@@ -36,7 +36,7 @@ class MultiMnist(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         index1 = index
-        index2 = random.randint(0, len(self))
+        index2 = random.randint(0, len(self) - 1)
 
         image1, label1 = self.mnist[index1]
         image2, label2 = self.mnist[index2]
@@ -44,7 +44,7 @@ class MultiMnist(torch.utils.data.Dataset):
         if self.deterministic:
             random.seed(self.seed)
         while label1 == label2:
-            index2 = random.randint(0, len(self))
+            index2 = random.randint(0, len(self) - 1)
             image2, label2 = self.mnist[index2]
 
         if self.deterministic:
@@ -63,7 +63,7 @@ class MultiMnist(torch.utils.data.Dataset):
         if self.transforms:
             image = self.transforms(image)
 
-        label = np.zeros(shape=(1, 10), dtype=np.uint8)
+        label = np.zeros(shape=(1, 10), dtype=np.float32)
         label[:, label1] = 1
         label[:, label2] = 1
 

@@ -5,6 +5,7 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=main
   - absl-py=0.10.0=py38_0
+  - autopep8=1.5.4=py_0
   - blas=1.0=mkl
   - blinker=1.4=py38_0
   - brotlipy=0.7.0=py38h7b6447c_1000
@@ -21,6 +22,7 @@ dependencies:
   - cycler=0.10.0=py38_0
   - dbus=1.13.16=hb2f20db_0
   - expat=2.2.9=he6710b0_2
+  - flake8=3.8.3=py_0
   - fontconfig=2.13.0=h9420a91_0
   - freetype=2.10.2=h5ab3b9f_0
   - glib=2.65.0=h3eb4bd4_0
@@ -51,6 +53,7 @@ dependencies:
   - markdown=3.2.2=py38_0
   - matplotlib=3.2.2=0
   - matplotlib-base=3.2.2=py38hef1b27d_0
+  - mccabe=0.6.1=py38_1
   - mkl=2020.2=256
   - mkl-service=2.3.0=py38he904b0f_0
   - mkl_fft=1.2.0=py38h23d657b_0
@@ -69,7 +72,9 @@ dependencies:
   - protobuf=3.12.4=py38he6710b0_0
   - pyasn1=0.4.8=py_0
   - pyasn1-modules=0.2.8=py_0
+  - pycodestyle=2.6.0=py_0
   - pycparser=2.20=py_2
+  - pyflakes=2.2.0=py_0
   - pyjwt=1.7.1=py38_0
   - pyopenssl=19.1.0=py_1
   - pyparsing=2.4.7=py_0
@@ -92,6 +97,7 @@ dependencies:
   - tensorboard=2.2.1=pyh532a8cf_0
   - tensorboard-plugin-wit=1.6.0=py_0
   - tk=8.6.10=hbc83047_0
+  - toml=0.10.1=py_0
   - torchvision=0.7.0=py38_cu102
   - tornado=6.0.4=py38h7b6447c_1
   - tqdm=4.47.0=py_0
@@ -105,4 +111,5 @@ dependencies:
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.4.5=h9ceee32_0
   - pip:
+    - confuse==1.3.0
     - opencv-python==4.3.0.36

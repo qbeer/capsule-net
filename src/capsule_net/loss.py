@@ -5,7 +5,7 @@ def margin_loss(outputs, one_hot_labels):
     margin_positive = .9
     margin_negative = .1
     lambd = .5
-    
+
     batch_size, _ = one_hot_labels.shape
 
     postive_loss = torch.square(
