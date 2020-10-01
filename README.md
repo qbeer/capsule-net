@@ -5,3 +5,9 @@
 ### MultiMNIST dataset
 
 ![multi-mnist-example](./multimnist_example.png)
+
+### Predictions
+
+* after training in a supervised fashion without reconstruction
+
+![multi-mnist-predictions](./multimnist_predictions.png)
